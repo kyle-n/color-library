@@ -2,7 +2,6 @@
 
 <p>Enter a number between 0 and 255:</p>
 <div class="form-control">
-  <label for="colorNumber">Color Number</label>
   <input
     type="number"
     id="colorNumber"
@@ -10,6 +9,7 @@
     [min]="minVal"
     [max]="maxVal"
   />
+  <label for="colorNumber">Color Number</label>
 </div>
 <button (click)="saveColorNumber()">Save</button>
 
