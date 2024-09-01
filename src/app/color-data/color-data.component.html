@@ -1,7 +1,7 @@
 <p>Your number is: {{ colorNumber }}</p>
 
 <ul>
-  @for (fact of numberFacts; track fact.name) {
-  <li>{{ fact.description }}: {{ fact.value }}</li>
+  @for (fact of numberFacts; track fact.id) {
+  <li>{{ fact.name }}: {{ fact.value }}</li>
   }
 </ul>

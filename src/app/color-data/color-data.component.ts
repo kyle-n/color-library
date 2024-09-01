@@ -11,41 +11,41 @@ export class ColorDataComponent {
   @Input() colorNumber = 0;
 
   get numberFacts(): Array<{
+    id: string;
     name: string;
-    description: string;
     value: string;
   }> {
     return [
       {
-        name: 'colorNumberHex',
-        description: 'Hexadecimal',
+        id: 'colorNumberHex',
+        name: 'Hexadecimal',
         value: this.colorNumberHex,
       },
       {
-        name: 'colorNumberBinary',
-        description: 'Binary',
+        id: 'colorNumberBinary',
+        name: 'Binary',
         value: this.colorNumberBinary,
       },
       {
-        name: 'colorNumberOctal',
-        description: 'Octal',
+        id: 'colorNumberOctal',
+        name: 'Octal',
         value: this.colorNumberOctal,
       },
       {
-        name: 'isPureBlack',
-        description: 'Is pure black',
+        id: 'isPureBlack',
+        name: 'Is pure black',
         value: this.isPureBlack.toString(),
       },
       {
-        name: 'isPureWhite',
-        description: 'Is pure white',
+        id: 'isPureWhite',
+        name: 'Is pure white',
         value: this.isPureWhite.toString(),
       },
-      { name: 'isEven', description: 'Is even', value: this.isEven.toString() },
-      { name: 'isOdd', description: 'Is odd', value: this.isOdd.toString() },
+      { id: 'isEven', name: 'Is even', value: this.isEven.toString() },
+      { id: 'isOdd', name: 'Is odd', value: this.isOdd.toString() },
       {
-        name: 'isPrime',
-        description: 'Is prime',
+        id: 'isPrime',
+        name: 'Is prime',
         value: this.isPrime.toString(),
       },
     ];
