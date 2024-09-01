@@ -6,41 +6,50 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './color-data.component.html',
   styleUrl: './color-data.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColorDataComponent {
   @Input() colorNumber = 0;
 
-  readonly numberFacts = [
-    {
-      name: 'colorNumberHex',
-      description: 'Hexadecimal',
-      value: this.colorNumberHex,
-    },
-    {
-      name: 'colorNumberBinary',
-      description: 'Binary',
-      value: this.colorNumberBinary,
-    },
-    {
-      name: 'colorNumberOctal',
-      description: 'Octal',
-      value: this.colorNumberOctal,
-    },
-    {
-      name: 'isPureBlack',
-      description: 'Is pure black',
-      value: this.isPureBlack,
-    },
-    {
-      name: 'isPureWhite',
-      description: 'Is pure white',
-      value: this.isPureWhite,
-    },
-    { name: 'isEven', description: 'Is even', value: this.isEven },
-    { name: 'isOdd', description: 'Is odd', value: this.isOdd },
-    { name: 'isPrime', description: 'Is prime', value: this.isPrime },
-  ];
+  get numberFacts(): Array<{
+    name: string;
+    description: string;
+    value: string;
+  }> {
+    return [
+      {
+        name: 'colorNumberHex',
+        description: 'Hexadecimal',
+        value: this.colorNumberHex,
+      },
+      {
+        name: 'colorNumberBinary',
+        description: 'Binary',
+        value: this.colorNumberBinary,
+      },
+      {
+        name: 'colorNumberOctal',
+        description: 'Octal',
+        value: this.colorNumberOctal,
+      },
+      {
+        name: 'isPureBlack',
+        description: 'Is pure black',
+        value: this.isPureBlack.toString(),
+      },
+      {
+        name: 'isPureWhite',
+        description: 'Is pure white',
+        value: this.isPureWhite.toString(),
+      },
+      { name: 'isEven', description: 'Is even', value: this.isEven.toString() },
+      { name: 'isOdd', description: 'Is odd', value: this.isOdd.toString() },
+      {
+        name: 'isPrime',
+        description: 'Is prime',
+        value: this.isPrime.toString(),
+      },
+    ];
+  }
 
   get colorNumberHex(): string {
     return this.colorNumber.toString(16).padStart(2, '0');
