@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-color-data',
@@ -6,15 +6,23 @@ import { Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './color-data.component.html',
   styleUrl: './color-data.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColorDataComponent {
   @Input() colorNumber = 0;
+
+  protected renders = 0;
 
   get numberFacts(): Array<{
     id: string;
     name: string;
     value: string;
   }> {
+    console.log(
+      '----------- re-running calculations -----------',
+      this.colorNumber
+    );
+    this.renders++;
     return [
       {
         id: 'colorNumberHex',
@@ -89,5 +97,9 @@ export class ColorDataComponent {
       }
     }
     return true;
+  }
+
+  incrementRenderCount(): void {
+    this.renders++;
   }
 }

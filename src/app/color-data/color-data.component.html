@@ -5,3 +5,6 @@
   <li>{{ fact.name }}: {{ fact.value }}</li>
   }
 </ul>
+
+<p>This component has rendered {{ renders }} times</p>
+<button (click)="incrementRenderCount()">Re-run change detection</button>
