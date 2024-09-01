@@ -6,10 +6,41 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   imports: [],
   templateUrl: './color-data.component.html',
   styleUrl: './color-data.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColorDataComponent {
   @Input() colorNumber = 0;
+
+  readonly numberFacts = [
+    {
+      name: 'colorNumberHex',
+      description: 'Hexadecimal',
+      value: this.colorNumberHex,
+    },
+    {
+      name: 'colorNumberBinary',
+      description: 'Binary',
+      value: this.colorNumberBinary,
+    },
+    {
+      name: 'colorNumberOctal',
+      description: 'Octal',
+      value: this.colorNumberOctal,
+    },
+    {
+      name: 'isPureBlack',
+      description: 'Is pure black',
+      value: this.isPureBlack,
+    },
+    {
+      name: 'isPureWhite',
+      description: 'Is pure white',
+      value: this.isPureWhite,
+    },
+    { name: 'isEven', description: 'Is even', value: this.isEven },
+    { name: 'isOdd', description: 'Is odd', value: this.isOdd },
+    { name: 'isPrime', description: 'Is prime', value: this.isPrime },
+  ];
 
   get colorNumberHex(): string {
     return this.colorNumber.toString(16).padStart(2, '0');
@@ -21,10 +52,6 @@ export class ColorDataComponent {
 
   get colorNumberOctal(): string {
     return this.colorNumber.toString(8);
-  }
-
-  get colorNumberDecimal(): string {
-    return this.colorNumber.toString(10);
   }
 
   get isPureBlack(): boolean {

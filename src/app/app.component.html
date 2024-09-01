@@ -13,4 +13,7 @@
 </div>
 <button (click)="saveColorNumber()">Save</button>
 
-<p>Your number is: {{ colorNumber.value }}</p>
+@if (savedColorNumber !== undefined) {
+  <app-color-data [colorNumber]="savedColorNumber"></app-color-data>
+}
+

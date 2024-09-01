@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { ColorDataComponent } from './color-data/color-data.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule],
+  imports: [RouterOutlet, ReactiveFormsModule, ColorDataComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -20,7 +21,10 @@ export class AppComponent {
   protected savedColorNumber: number | undefined;
 
   protected saveColorNumber(): void {
-    const colorNumberWithinLimits = Math.min(this.maxVal, Math.max(this.minVal, this.colorNumber.value));
+    const colorNumberWithinLimits = Math.min(
+      this.maxVal,
+      Math.max(this.minVal, this.colorNumber.value)
+    );
     this.colorNumber.setValue(colorNumberWithinLimits);
     this.savedColorNumber = colorNumberWithinLimits;
   }

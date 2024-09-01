@@ -1,1 +1,7 @@
-<p>color-data works!</p>
+<p>Your number is: {{ colorNumber }}</p>
+
+<ul>
+  @for (fact of numberFacts; track fact.name) {
+  <li>{{ fact.name }}: {{ fact.value }}</li>
+  }
+</ul>
